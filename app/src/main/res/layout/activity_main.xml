@@ -63,5 +63,19 @@
 
 
     </LinearLayout>
+<!--почему app:itemIconTint меняет цвет иконок и по умолчанию я не могу оставить цвета они всегда странные-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:itemIconSize="36dp"
+        android:background="#2C2727"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemIconTint="@null"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

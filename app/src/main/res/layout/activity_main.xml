@@ -6,14 +6,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+<!--почему его а не androidx.fragment.app.FragmentContainerView -->
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="495dp"
+        android:layout_height="773dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+<!--почему если ставлю обычный button не работают стили -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:text="tasks"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_select_frame"
+            android:id="@+id/btn_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:text="@string/text"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/btn_select_frame"
+            android:id="@+id/btn_Main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:text="@string/text"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_select_frame"
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

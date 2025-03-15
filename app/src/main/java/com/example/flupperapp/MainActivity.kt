@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
                         setReorderingAllowed(true)
                         replace(R.id.fragment, Fragment_Main_Screen())
 
+
                         binding.btnTasks.setOnClickListener {
                             supportFragmentManager.commit {
                                 setReorderingAllowed(true)

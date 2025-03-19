@@ -5,25 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1F1E1E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_paw"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvStrickCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
-        android:layout_marginTop="80dp"
-        android:id="@+id/textView"
+        android:layout_marginTop="36dp"
+        android:id="@+id/tvTasks"
+        style="@style/taskText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="tasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="36dp"
-        android:id="@+id/recyclerView"
+        android:layout_marginTop="18dp"
+        android:id="@+id/recyclerViewTasks"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tvTasks"
+        app:spanCount="2"
+        tools:itemCount="6"
+        tools:listitem="@layout/task_item" />
+
+    <TextView
+        style="@style/taskText"
+        android:layout_marginTop="30dp"
+        android:id="@+id/tvMainTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main tasks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewTasks" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="18dp"
+        android:id="@+id/recyclerViewMainTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainTasks"
         app:spanCount="2"
         tools:itemCount="6"
         tools:listitem="@layout/task_item" />

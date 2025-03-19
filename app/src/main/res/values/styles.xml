@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="taskText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">28dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/montserrat_alternates_semibold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+</resources>

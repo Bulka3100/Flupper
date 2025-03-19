@@ -1,4 +1,4 @@
-package com.example.flupperapp
+package com.example.flupperapp.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.flupperapp.STUB
+import com.example.flupperapp.STUBER
 import com.example.flupperapp.adapters.MainTasksAdapter
 import com.example.flupperapp.databinding.FragmentTasksBinding
 import com.example.flupperapp.adapters.TasksAdapter

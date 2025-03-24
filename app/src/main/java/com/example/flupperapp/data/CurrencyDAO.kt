@@ -6,14 +6,15 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 //тут вопрос про корутины и ассинхронность
+// не надо же писать suspend fun?
 @Dao
 interface CurrencyDAO {
-    @Query("SELECT amount FROM currency WHERE id = 1")
-    suspend fun getCurrency(): Int
+    @Query("SELECT amount FROM currency WHERE id = 1") fun getCurrency(): Int
 
     @Update
-    suspend fun updateCurrency(currency: Currency)
+   fun updateCurrency(currency: Currency)
 
     @Insert
-    suspend fun insertCurrency(currency: Currency)
+    fun insertCurrency(currency: Currency)
 }
+//update suspend выдает ошибку видимо тут автоматом стоит

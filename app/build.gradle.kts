@@ -42,9 +42,9 @@ android {
 }
 
 dependencies {
-   implementation("androidx.room:room-runtime:2.5.2")
-    kapt("androidx.room:room-compile:2.5.2")
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
+   implementation(libs.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.recyclerview.v140)
     implementation (libs.androidx.fragment.ktx)
     implementation (libs.androidx.recyclerview)
     implementation(libs.androidx.core.ktx)

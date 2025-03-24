@@ -1,13 +1,14 @@
 package com.example.flupperapp
 
 import android.app.Application
+import android.util.Log
 import com.example.flupperapp.data.AppDatabase
 import com.example.flupperapp.data.Currency
 import com.example.flupperapp.data.CurrencyDAO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-//MyApplication.kt — это класс, который наследуется от Application. Он запускается один раз при старте приложения, ещё до того, как открывается MainActivity. Его задача — выполнить какие-то глобальные настройки, которые нужны всему приложению.
+
 class MyApplication : Application() {
     private val db by lazy { AppDatabase.getInstance(this) }
     private val scope = CoroutineScope(Dispatchers.IO)
@@ -18,14 +19,13 @@ class MyApplication : Application() {
             val currencyDAO: CurrencyDAO = db.currencyDAO()
             try {
                 val currentAmount = currencyDAO.getCurrency()
-                if (currentAmount == 0) { // Если запись пуста или не существует
-                    val initialCurrency = Currency(amount = 0)
-                    currencyDAO.insertCurrency(initialCurrency)
-                }
+                Log.d("MyApplication", "Current currency amount: $currentAmount")
             } catch (e: Exception) {
-                // Если записи нет, создаём новую
-                val initialCurrency = Currency(amount = 0)
+                Log.e("MyApplication", "Error initializing currency: ${e.message}")
+                // Вставляем новую запись, но не задаём id вручную
+                val initialCurrency = Currency(amount = 0) // Room сам сгенерирует id
                 currencyDAO.insertCurrency(initialCurrency)
+                Log.d("MyApplication", "Inserted initial currency with amount: 0")
             }
         }
     }
@@ -34,5 +34,3 @@ class MyApplication : Application() {
         return db
     }
 }
-
-//!!! разобрать что я тут написали получше

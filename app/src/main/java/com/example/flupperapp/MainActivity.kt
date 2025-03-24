@@ -26,12 +26,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 //разобрать
         binding.bottomNavigation.itemIconTintList = null
-        currencyManager.setCurrencyView(binding.textViewCurrency)
-        binding.testButton.setOnClickListener {
-            currencyManager.awardCurrency(10)
-        }
-
-
 
 
 

@@ -9,16 +9,25 @@ import com.example.flupperapp.databinding.ActivityMainBinding
 import com.example.flupperapp.fragments.FragmentTasks
 import com.example.flupperapp.fragments.MainScreenFragment
 import com.example.flupperapp.fragments.ProfileFragment
+import com.example.flupperapp.utils.CurrencyManager
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     val binding get() = _binding ?: throw IllegalStateException("binding null")
+
+    //!!! разобрать как тут написали
+    private val database by lazy { (application as MyApplication).getDatabase() }
+    private val currencyDAO by lazy { database.currencyDAO() }
+    private val currencyManager by lazy { CurrencyManager(currencyDAO) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+//разобрать
         binding.bottomNavigation.itemIconTintList = null
+
+
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {

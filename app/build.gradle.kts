@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+        //тут добавил чтобы отображался kapt что и зачем?
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -39,6 +42,8 @@ android {
 }
 
 dependencies {
+   implementation("androidx.room:room-runtime:2.5.2")
+    kapt("androidx.room:room-compile:2.5.2")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation (libs.androidx.fragment.ktx)
     implementation (libs.androidx.recyclerview)

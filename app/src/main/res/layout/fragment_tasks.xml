@@ -40,48 +40,59 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:layout_marginTop="36dp"
         android:id="@+id/tvTasks"
         style="@style/taskText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="tasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="18dp"
         android:id="@+id/recyclerViewTasks"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="18dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTasks"
-        app:spanCount="2"
         tools:itemCount="6"
         tools:listitem="@layout/task_item" />
 
+    <Button
+        android:id="@+id/addTaskButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Добавить задачу"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewTasks" />
+
     <TextView
-        style="@style/taskText"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="18dp"
         android:id="@+id/tvMainTasks"
+        style="@style/taskText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main tasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewTasks" />
+        app:layout_constraintTop_toBottomOf="@+id/addTaskButton" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="18dp"
         android:id="@+id/recyclerViewMainTasks"
         android:layout_width="wrap_content"
         android:layout_height="160dp"
+        android:layout_marginTop="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMainTasks"
         app:spanCount="2"

@@ -16,6 +16,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class FragmentTasks : Fragment() {
     private var _binding: FragmentTasksBinding? = null
     private val binding get() = _binding ?: throw IllegalStateException("null binding")
+
+    //!!! почему тут нужен lataInшt а если его нет то ломается
     private lateinit var dailyTasksAdapter: TasksAdapter
     private lateinit var mainTasksAdapter: TasksAdapter
 

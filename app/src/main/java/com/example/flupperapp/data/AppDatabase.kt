@@ -8,7 +8,7 @@ import android.content.Context
 
 @Database(entities = [Currency::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-//    почему тут все абстрактное и функция currencyDao так странно определена
+    //    почему тут все абстрактное и функция currencyDao так странно определена
     abstract fun currencyDAO(): CurrencyDAO
 
     companion object {

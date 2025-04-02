@@ -51,6 +51,19 @@
             card_view:layout_constraintStart_toEndOf="@+id/tvIsReady"
             card_view:layout_constraintTop_toBottomOf="@+id/tvText" />
 
+        <ImageView
+            android:id="@+id/ivIsReady"
+            android:contentDescription="ivIsReady"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginEnd = "30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_wrong"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         // Добавим обводку: создаём программно, замени ic_launcher_background на подходящий для обводки ресурс
         view.background = ContextCompat.getDrawable(view.context, R.drawable.shape_selected_nav)
+
     }
 
     private fun resetIcon(view: View) {

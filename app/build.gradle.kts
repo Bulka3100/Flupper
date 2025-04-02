@@ -1,9 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-
-        //тут добавил чтобы отображался kapt что и зачем?
     id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.google.services) // Применяем Google Services
 }
 
 android {
@@ -12,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.flupperapp"
-        minSdk = 24
+        minSdk = 32
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -42,11 +41,14 @@ android {
 }
 
 dependencies {
-   implementation(libs.room.runtime)
+    implementation(libs.room.runtime)
     kapt(libs.androidx.room.compiler)
+    implementation(libs.room.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+
     implementation(libs.androidx.recyclerview.v140)
-    implementation (libs.androidx.fragment.ktx)
-    implementation (libs.androidx.recyclerview)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -55,4 +57,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.firebase.auth)       // Firebase Authentication
+    implementation(libs.firebase.database)   // Firebase Realtime Database
 }

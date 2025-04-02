@@ -5,6 +5,7 @@ import android.util.Log
 import com.example.flupperapp.data.AppDatabase
 import com.example.flupperapp.data.Currency
 import com.example.flupperapp.data.CurrencyDAO
+import com.example.flupperapp.utils.CurrencyManager  // Добавляем импорт
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,6 +13,11 @@ import kotlinx.coroutines.launch
 class MyApplication : Application() {
     private val db by lazy { AppDatabase.getInstance(this) }
     private val scope = CoroutineScope(Dispatchers.IO)
+
+    // Добавляем поле для CurrencyManager
+    val currencyManager: CurrencyManager by lazy {
+        CurrencyManager(db.currencyDAO())
+    }
 
     override fun onCreate() {
         super.onCreate()

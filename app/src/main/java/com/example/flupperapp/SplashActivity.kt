@@ -16,11 +16,16 @@ class SplashActivity : AppCompatActivity() {
         videoView.setVideoPath(videoPath)
 
         // Запусти воспроизведение
-        videoView.start()
+        videoView.setOnPreparedListener {
+            android.util.Log.d("SplashActivity", "Video prepared, starting playback")
+            // Убираем белый фон, чтобы видео стало видно
+            videoView.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+            videoView.start()
+        }
 
         // Перейди в MainActivity после завершения видео
         videoView.setOnCompletionListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }

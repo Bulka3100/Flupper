@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.FlupperApp" parent="Base.Theme.FlupperApp" />
+
+    <style name="Theme.FlupperApp.NoSplash" parent="Theme.FlupperApp">
+        <!-- Отключаем системный splash screen -->
+        <item name="android:windowSplashScreenBackground">@android:color/transparent</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@android:color/transparent</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
+    </style>
 </resources>

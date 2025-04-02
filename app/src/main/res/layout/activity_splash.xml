@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-
+<!--большая проблема с отображением я хочу чтобы сначала вместо белого фона моментально подгружалась картинка а потом не было черного фофна видео а вместьо него эта картинка(в идеале)-->
+<!--    так как в идеале не получилось попробовал програмно менять фон в момент подготовки чтоб хоть не было прогрузочного черного фона видео но не уверен что в нужный момент прописал и вообще так делается (не получилось и черный фон остался)-->
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:layout_gravity="center" />
 </FrameLayout>

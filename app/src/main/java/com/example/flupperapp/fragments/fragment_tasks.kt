@@ -12,14 +12,20 @@ import com.example.flupperapp.adapters.TasksAdapter
 import com.example.flupperapp.data_classes.TaskData
 import com.example.flupperapp.databinding.FragmentTasksBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+// Добавляем импорт для CurrencyManager
+import com.example.flupperapp.utils.CurrencyManager
+// Добавляем импорт для MyApplication
+import com.example.flupperapp.MyApplication
+
 
 class FragmentTasks : Fragment() {
     private var _binding: FragmentTasksBinding? = null
     private val binding get() = _binding ?: throw IllegalStateException("null binding")
 
-    //!!! почему тут нужен lataInшt а если его нет то ломается
     private lateinit var dailyTasksAdapter: TasksAdapter
     private lateinit var mainTasksAdapter: TasksAdapter
+    // Добавляем поле для CurrencyManager
+    private lateinit var currencyManager: CurrencyManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,17 +39,25 @@ class FragmentTasks : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Добавляем: Получаем CurrencyManager из MyApplication
+        currencyManager = (requireActivity().application as MyApplication).currencyManager
+
+        // Добавляем: Устанавливаем TextView для CurrencyManager
+        currencyManager.setCurrencyView(binding.tvCurrency)
+
         // Настройка адаптеров для RecyclerView
-        // Преобразуем List в MutableList для dailyTasksAdapter
         val dailyTasks = STUB.showTasks().toMutableList()
         dailyTasksAdapter = TasksAdapter(dailyTasks) { task ->
-            task.isComplited = true
+            // Удаляем: task.isCompleted = true (это уже сделано в адаптере)
+            // Добавляем: Начисляем валюту
+            currencyManager.awardCurrency(task.reward)
             dailyTasksAdapter.updateTasks(STUB.showTasks().toMutableList())
         }
-        // Аналогично для mainTasksAdapter
         val mainTasks = STUB.showGlobalTasks().toMutableList()
         mainTasksAdapter = TasksAdapter(mainTasks) { task ->
-            task.isComplited = true
+            // Удаляем: task.isCompleted = true (это уже сделано в адаптере)
+            // Добавляем: Начисляем валюту
+            currencyManager.awardCurrency(task.reward)
             mainTasksAdapter.updateTasks(STUB.showGlobalTasks().toMutableList())
         }
 
@@ -57,7 +71,6 @@ class FragmentTasks : Fragment() {
             adapter = mainTasksAdapter
         }
 
-        // Открываем AddTaskFragment по кнопке "Добавить задачу"
         binding.addTaskButton.setOnClickListener {
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
 

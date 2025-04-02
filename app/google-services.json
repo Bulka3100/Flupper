@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "254274633386",
+    "project_id": "flupperapp",
+    "storage_bucket": "flupperapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254274633386:android:e1d8fb0855e9a119fd1ad3",
+        "android_client_info": {
+          "package_name": "com.example.flupperapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzAWHFP8gmCZ42ygv3QFvVbYdlNfGNbvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
